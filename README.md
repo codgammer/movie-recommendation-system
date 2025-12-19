@@ -1,71 +1,67 @@
-🎬 Movie Recommendation System (Machine Learning)
+# 🎬 Movie Recommendation System (Machine Learning)
 
-A Movie Recommendation System built using Machine Learning and Flask, which suggests similar movies based on content similarity.
-The system uses TF-IDF Vectorization and Cosine Similarity to recommend movies and provides a clean, interactive frontend for users.
+A **full-stack Movie Recommendation System** built using **Machine Learning and Flask**, which suggests similar movies based on **content similarity**.  
+The system uses **TF-IDF Vectorization** and **Cosine Similarity (computed at runtime)** to recommend movies and provides a clean, interactive frontend for users.
 
-📌 Project Overview
+---
 
-Recommender systems are widely used in platforms like Netflix, Amazon, and YouTube.
-This project implements a Content-Based Movie Recommendation System that recommends movies based on their genres.
+## 📌 Project Overview
 
-The application is built as a full-stack ML web application with:
+Recommender systems are widely used in platforms like **Netflix, Amazon, and YouTube** to personalize user experience.
 
-A Flask backend API
+This project implements a **Content-Based Movie Recommendation System** that recommends movies based on their **genre similarity** using Natural Language Processing techniques.
 
-A modern frontend (HTML, CSS, JavaScript)
+The application is developed as a **production-ready full-stack ML web application** consisting of:
 
-Dataset-based movie recommendations
+- 🧠 Machine Learning model for similarity computation  
+- ⚙️ Flask REST API backend  
+- 🎨 Responsive frontend using HTML, CSS, and JavaScript  
+- ☁️ Cloud deployment using **Render (backend)** and **Vercel (frontend)**  
 
-🚀 Features
+---
 
-🔍 Search movies by title
+## 🚀 Features
 
-🎯 Get top similar movie recommendations
+- 🔍 Search movies by title  
+- 🎯 Get top similar movie recommendations  
+- ⚡ Fast recommendations using **runtime cosine similarity**  
+- 🧠 Machine Learning with **TF-IDF Vectorization**  
+- 🎨 Modern, responsive frontend UI  
+- 🧪 Error handling for invalid movie names  
+- 📦 GitHub version-controlled project  
+- ☁️ Cloud-deployed and publicly accessible  
 
-⚡ Fast recommendations using precomputed similarity matrix
+---
 
-🧠 Machine Learning with TF-IDF & Cosine Similarity
+## 🛠️ Tech Stack
 
-🎨 Modern and responsive frontend UI
+### Frontend
+- HTML5  
+- CSS3  
+- JavaScript  
 
-🧪 Error handling for invalid movie names
+### Backend
+- Python  
+- Flask  
+- Flask-CORS  
 
-📦 GitHub version-controlled project
+### Machine Learning
+- Pandas  
+- Scikit-learn  
+- TF-IDF Vectorizer  
+- Cosine Similarity  
 
-🛠️ Tech Stack
-Frontend
+### Tools & Platforms
+- Git & GitHub  
+- VS Code  
+- Render (Backend Deployment)  
+- Vercel (Frontend Deployment)  
 
-HTML5
+---
 
-CSS3
+## 📂 Project Structure
 
-JavaScript
-
-Backend
-
-Python
-
-Flask
-
-Flask-CORS
-
-Machine Learning
-
-Pandas
-
-Scikit-learn
-
-TF-IDF Vectorizer
-
-Cosine Similarity
-
-Tools
-
-Git & GitHub
-
-VS Code
-
-📂 Project Structure
+```text
 movie-recommendation-system/
 │
 ├── backend/
@@ -73,81 +69,95 @@ movie-recommendation-system/
 │   ├── model_train.py
 │   ├── evaluate.py
 │   ├── requirements.txt
+│   ├── Procfile
 │   ├── data/
 │   │   ├── movies.csv
 │   │   └── ratings.csv
 │   └── models/
-│       └── content_sim.pkl
+│       ├── tfidf.pkl
+│       └── tfidf_matrix.pkl
 │
 ├── frontend/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
+│   └── index.html
 │
 ├── README.md
 └── .gitignore
+```
 
-⚙️ How It Works
 
-Movie genres are vectorized using TF-IDF
+## ⚙️ How It Works
 
-Cosine similarity is calculated between movies
+- Movie genres are vectorized using **TF-IDF**
+- TF-IDF vectors are stored as lightweight model files
+- When a user enters a movie name:
+  - The corresponding TF-IDF vector is retrieved
+  - **Cosine similarity** is computed against all movies
+  - Top similar movies are selected
+- Recommendations are returned via a **Flask REST API**
+- The frontend fetches and displays recommendations dynamically
 
-Similarity scores are stored in a matrix
+---
 
-When a user enters a movie name:
+## ▶️ How to Run the Project Locally
 
-The system finds similar movies
-
-Returns the top recommendations via API
-
-The frontend displays recommendations dynamically
-
-▶️ How to Run the Project Locally
-1️⃣ Clone the Repository
+### 1️⃣ Clone the Repository
+```bash
 git clone https://github.com/codgammer/movie-recommendation-system.git
 cd movie-recommendation-system
+```
 
-2️⃣ Setup Backend
+### 2️⃣ Setup Backend
 cd backend
 python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
 
-3️⃣ Train the Model
+### 3️⃣ Train the Model
 python model_train.py
 
-4️⃣ Run Flask Server
+
+This generates:
+
+tfidf.pkl
+
+tfidf_matrix.pkl
+
+### 4️⃣ Run Flask Server
 python app.py
 
-
-Backend will run at:
+Backend runs at:
 
 http://127.0.0.1:5000/
 
-5️⃣ Run Frontend
+### 5️⃣ Run Frontend
 
-Open frontend/index.html using Live Server
+Open frontend/index.html in a browser
 
 Enter a movie name (example: Toy Story (1995))
 
 Click Recommend
 
-📊 Evaluation Metrics
+---
+## 📊 Evaluation Metrics
 
-The system can be evaluated using:
+
+The project includes an offline evaluation module using:
 
 RMSE (Root Mean Square Error)
 
 MAE (Mean Absolute Error)
 
-Graphs included:
+Generated visualizations:
 
 Rating distribution
 
-Accuracy comparison
+Accuracy comparison graphs
 
-🧠 Use Case
+Evaluation scripts are executed locally only and are not part of production runtime.
+
+---
+## 🧠 Use Cases
+
 
 Movie recommendation platforms
 
@@ -155,30 +165,29 @@ OTT applications
 
 Learning recommender system concepts
 
-Placement-ready ML project
+Final-year engineering project
 
-🏆 Resume Description
+Placement-ready ML portfolio project
 
-Developed a Movie Recommendation System using Machine Learning techniques such as TF-IDF and Cosine Similarity, implemented with Flask REST APIs and an interactive frontend.
-
-🧠 Viva / Interview Explanation
-
-“This project uses content-based filtering where movies are recommended based on genre similarity. TF-IDF vectorization converts text data into numerical form, and cosine similarity is used to find similar movies efficiently.”
-
-🔮 Future Enhancements
+---
+## 🔮 Future Enhancements
 
 Hybrid recommendation (Content + Collaborative Filtering)
 
 Movie poster integration using TMDB API
 
-User login and personalized recommendations
-
-Deployment using Render and Netlify
+User authentication & personalized recommendations
 
 React-based frontend
 
-👨‍💻 Author
+Caching for faster inference
+
+Analytics dashboard
+---
+## 👨‍💻 Author
 
 Kishan Harishchandra Prabhu
 GitHub: https://github.com/codgammer
+
+© 2025 Kishan Harishchandra Prabhu. All rights reserved.
 
