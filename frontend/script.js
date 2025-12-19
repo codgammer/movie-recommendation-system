@@ -12,7 +12,7 @@ async function getRec() {
   }
 
   try {
-    const response = await fetch("http://movie-recommendation-system-eloz.onrender.com", {
+    const response = await fetch("https://movie-recommendation-system-eloz.onrender.com", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
