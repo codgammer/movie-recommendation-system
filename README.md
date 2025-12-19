@@ -118,9 +118,9 @@ python model_train.py
 
 This generates:
 
-tfidf.pkl
+- tfidf.pkl
 
-tfidf_matrix.pkl
+- tfidf_matrix.pkl
 
 ### 4️⃣ Run Flask Server
 python app.py
@@ -131,56 +131,56 @@ http://127.0.0.1:5000/
 
 ### 5️⃣ Run Frontend
 
-Open frontend/index.html in a browser
+- Open frontend/index.html in a browser
 
-Enter a movie name (example: Toy Story (1995))
+- Enter a movie name (example: Toy Story (1995))
 
-Click Recommend
+- Click Recommend
 
 ---
 ## 📊 Evaluation Metrics
 
 
-The project includes an offline evaluation module using:
+- The project includes an offline evaluation module using:
 
-RMSE (Root Mean Square Error)
+  - RMSE (Root Mean Square Error)
 
-MAE (Mean Absolute Error)
+  - MAE (Mean Absolute Error)
 
-Generated visualizations:
+- Generated visualizations:
 
-Rating distribution
+  - Rating distribution
 
-Accuracy comparison graphs
+  - Accuracy comparison graphs
 
-Evaluation scripts are executed locally only and are not part of production runtime.
+  - Evaluation scripts are executed locally only and are not part of production runtime.
 
 ---
 ## 🧠 Use Cases
 
 
-Movie recommendation platforms
+- Movie recommendation platforms
 
-OTT applications
+- OTT applications
 
-Learning recommender system concepts
+- Learning recommender system concepts
 
-Final-year engineering project
+- Final-year engineering project
 
-Placement-ready ML portfolio project
+- Placement-ready ML portfolio project
 
 ---
 ## 🔮 Future Enhancements
 
-Hybrid recommendation (Content + Collaborative Filtering)
+- Hybrid recommendation (Content + Collaborative Filtering)
 
-Movie poster integration using TMDB API
+- Movie poster integration using TMDB API
 
-User authentication & personalized recommendations
+- User authentication & personalized recommendations
 
-React-based frontend
+- React-based frontend
 
-Caching for faster inference
+- Caching for faster inference
 
 Analytics dashboard
 ---
