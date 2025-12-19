@@ -4,7 +4,8 @@ __pycache__/
 *.pyc
 
 # ML models
-backend/models/*.pkl
+
+backend/models/content_sim.pkl
 
 # VS Code
 .vscode/
@@ -12,3 +13,7 @@ backend/models/*.pkl
 # OS files
 .DS_Store
 Thumbs.db
+
+# Evaluation outputs
+*.png
+
