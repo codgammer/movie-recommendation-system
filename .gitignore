@@ -4,8 +4,7 @@ __pycache__/
 *.pyc
 
 # ML models
-
-backend/models/content_sim.pkl
+content_sim.pkl
 
 # VS Code
 .vscode/
