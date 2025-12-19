@@ -2,19 +2,24 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import pickle
 import pandas as pd
+import os
 
 app = Flask(__name__)
 CORS(app)
 
-movies = pd.read_csv("data/movies.csv")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+movies_path = os.path.join(BASE_DIR, "data", "movies.csv")
+model_path = os.path.join(BASE_DIR, "models", "content_sim.pkl")
+
+movies = pd.read_csv(movies_path)
 movies = movies.reset_index(drop=True)
 
-content_sim = pickle.load(open("models/content_sim.pkl", "rb"))
+content_sim = pickle.load(open(model_path, "rb"))
 
 @app.route("/")
 def home():
     return "Backend is running successfully"
-
 
 @app.route("/recommend", methods=["POST"])
 def recommend():
@@ -29,7 +34,6 @@ def recommend():
         return jsonify({"error": "Movie not found"})
 
     idx = movies.index[movies["title"] == movie][0]
-
     scores = list(enumerate(content_sim[idx]))
     scores = sorted(scores, key=lambda x: x[1], reverse=True)[1:11]
 
@@ -37,3 +41,5 @@ def recommend():
 
     return jsonify({"recommendations": recommendations})
 
+if __name__ == "__main__":
+    app.run(debug=True)
