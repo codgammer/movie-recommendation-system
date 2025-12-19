@@ -1,7 +1,7 @@
 import pandas as pd
-import matplotlib.pyplot as plt
-from sklearn.metrics import mean_squared_error, mean_absolute_error
 import numpy as np
+from sklearn.metrics import mean_squared_error, mean_absolute_error
+import matplotlib.pyplot as plt
 
 ratings = pd.read_csv("data/ratings.csv")
 
@@ -16,8 +16,10 @@ print("MAE:", mae)
 
 ratings["rating"].value_counts().sort_index().plot(kind="bar")
 plt.title("Rating Distribution")
-plt.show()
+plt.savefig("rating_distribution.png")
+plt.close()
 
 plt.bar(["RMSE", "MAE"], [rmse, mae])
 plt.title("Accuracy Metrics")
-plt.show()
+plt.savefig("accuracy_metrics.png")
+plt.close()

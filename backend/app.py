@@ -3,6 +3,7 @@ from flask_cors import CORS
 import pickle
 import pandas as pd
 import os
+from sklearn.metrics.pairwise import cosine_similarity
 
 app = Flask(__name__)
 CORS(app)
@@ -10,12 +11,14 @@ CORS(app)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 movies_path = os.path.join(BASE_DIR, "data", "movies.csv")
-model_path = os.path.join(BASE_DIR, "models", "content_sim.pkl")
+tfidf_path = os.path.join(BASE_DIR, "models", "tfidf.pkl")
+tfidf_matrix_path = os.path.join(BASE_DIR, "models", "tfidf_matrix.pkl")
 
 movies = pd.read_csv(movies_path)
 movies = movies.reset_index(drop=True)
 
-content_sim = pickle.load(open(model_path, "rb"))
+tfidf = pickle.load(open(tfidf_path, "rb"))
+tfidf_matrix = pickle.load(open(tfidf_matrix_path, "rb"))
 
 @app.route("/")
 def home():
@@ -34,10 +37,14 @@ def recommend():
         return jsonify({"error": "Movie not found"})
 
     idx = movies.index[movies["title"] == movie][0]
-    scores = list(enumerate(content_sim[idx]))
-    scores = sorted(scores, key=lambda x: x[1], reverse=True)[1:11]
 
-    recommendations = [movies.iloc[i[0]]["title"] for i in scores]
+    scores = cosine_similarity(
+        tfidf_matrix[idx],
+        tfidf_matrix
+    ).flatten()
+
+    similar_indices = scores.argsort()[::-1][1:11]
+    recommendations = movies.iloc[similar_indices]["title"].tolist()
 
     return jsonify({"recommendations": recommendations})
 
