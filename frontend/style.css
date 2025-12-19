@@ -8,12 +8,12 @@ body {
   min-height: 100vh;
   margin: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   color: #fff;
 }
 
 .container {
+  margin: auto;
   background: #1f2a40;
   padding: 40px;
   width: 100%;
@@ -86,4 +86,13 @@ button:hover {
 .movie-list li:hover {
   transform: scale(1.03);
   background: #3a4a73;
+}
+
+.footer {
+  margin-top: auto;
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+  color: #ccc;
+  background: rgba(0, 0, 0, 0.3);
 }

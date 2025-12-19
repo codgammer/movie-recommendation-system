@@ -24,7 +24,23 @@
 
     <ul id="result" class="movie-list"></ul>
   </div>
+   <footer class="footer">
+    <p>
+      © <span id="year"></span> Kishan Harishchandra Prabhu.  
+      All rights reserved.
+    </p>
+  </footer>
 
   <script src="script.js"></script>
+
+   <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+
+ 
+
 </body>
+
+
 </html>
